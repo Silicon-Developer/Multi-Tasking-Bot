@@ -3,7 +3,7 @@
 <p align="center">ʀᴇᴘᴏ ғᴇᴀᴛᴜʀᴇs</p>
 
 
- ![github card](https://github-readme-stats.vercel.app/api/pin/?username=Silicon-Developer&repo=Multi-Tasking-Bot&theme=dark) 
+ ![github card](https://github-readme-stats.vercel.app/api/pin/?username=silicon-developer&repo=Multi-Tasking-Bot&theme=dark) 
 
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
