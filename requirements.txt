@@ -1,0 +1,27 @@
+pyrofork==2.3.43
+motor==2.5.1
+dnspython==2.3.0
+tgcrypto 
+telethon
+youtube-search
+youtube-search-python
+yt-dlp
+asyncio
+requests
+Pillow
+aiohttp
+SafoneAPI
+opencv-python-headless
+aiofiles
+pykeyboard
+telegraph==2.2.0
+googletrans==3.1.0a0
+gTTS==2.3.1
+wget
+edge-tts
+HorridAPI==1.0.35
+Mangandi
+#Koyeb Support 
+Flask
+gunicorn
+aiohttp==3.8.5
