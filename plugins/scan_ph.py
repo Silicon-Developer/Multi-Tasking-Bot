@@ -2,7 +2,7 @@ import requests
 from Mangandi import ImageUploader
 from pyrogram import Client, filters
 
-api = "https://horridapi2-0.onrender.com/search"
+api = "https://horridapi.onrender.com/search"
 
 @Client.on_message(filters.command("scan_ph"))
 async def scan_ph(client, message):
