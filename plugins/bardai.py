@@ -11,7 +11,7 @@ async def bardandgemini(_: Client, message: Message):
 
     query = " ".join(message.command[1:])    
     txt = await message.reply_text("⏳")
-    app = f"https://horridapi2-0.onrender.com/bard?query={query}"
+    app = f"https://horridapi.onrender.com/bard?query={query}"
     response = requests.get(app)
     data = response.json()
     api = data['text']
