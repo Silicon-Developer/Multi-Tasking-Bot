@@ -23,15 +23,15 @@ def ask_query(query, model=None):
 
 # Handler for the "/ai" command
 @Client.on_message(filters.command("ai"))
-def handle_query(client, message):
+async def handle_query(client, message):
     user_query = message.text.split(maxsplit=1)[1] if len(message.command) > 1 else None
 
     if not user_query:
-        message.reply_text("<b>Please provide a query to ask.</b>")
+        await message.reply_text("<b>Please provide a query to ask.</b>")
         return
 
     # Fetch the response from the AI API
     response = ask_query(user_query)
 
     # Send the response back to the user
-    message.reply_text(f"<b>{response}</b>")
+    await message.reply_text(f"<b>{response}</b>")
