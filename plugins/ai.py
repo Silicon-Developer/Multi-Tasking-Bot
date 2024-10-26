@@ -1,8 +1,9 @@
 from pyrogram import Client, filters
 import requests
 import urllib.parse
+import asyncio
 
-def ask_query(query, model=None):
+async def ask_query(query, model=None):
     default_model = 'claude-sonnet-3.5'
     system_prompt = "You are a helpful assistant. Your name is Asuraa, and your owner's name is Silicon, known as @Silicon_Botz."
 
@@ -14,7 +15,8 @@ def ask_query(query, model=None):
     encoded_query = urllib.parse.quote(query)
     url = f"https://chatwithai.codesearch.workers.dev/?chat={encoded_query}&model={model}"
 
-    response = requests.get(url)
+    loop = asyncio.get_event_loop()
+    response = await loop.run_in_executor(None, requests.get, url)
 
     if response.status_code == 200:
         return response.json().get("result", "No response found.")
@@ -31,7 +33,7 @@ async def handle_query(client, message):
         return
 
     # Fetch the response from the AI API
-    response = ask_query(user_query)
+    response = await ask_query(user_query)
 
     # Send the response back to the user
     await message.reply_text(f"<b>{response}</b>")
