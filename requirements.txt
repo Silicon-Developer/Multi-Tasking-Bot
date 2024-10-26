@@ -1,4 +1,4 @@
-pyrofork==2.3.43
+pyrofork==2.3.45
 motor==2.5.1
 dnspython==2.3.0
 tgcrypto 
@@ -19,7 +19,7 @@ googletrans==3.1.0a0
 gTTS==2.3.1
 wget
 edge-tts
-HorridAPI==1.0.35
+HorridAPI==1.0.39
 Mangandi
 #Koyeb Support 
 Flask
