@@ -43,9 +43,3 @@ async def handle_query(client, message):
 
     # Send the response back to the user
     await message.reply_text(f"<b>{response}</b>")
-
-# Create and run the bot instance
-app = Client("my_bot")
-
-# Start the bot
-app.run()
