@@ -1,23 +1,29 @@
 from pyrogram import Client, filters
 import requests
 import urllib.parse
-import asyncio
 
-async def ask_query(query, model=None):
+def ask_query(query, model=None):
+    # Default system prompt if using the default model
     default_model = 'claude-sonnet-3.5'
-    system_prompt = "You are a helpful assistant. Your name is Asuraa, and your owner's name is Silicon, known as @Silicon_Botz."
+    system_prompt = "You are a helpful assistant. Your name is Asuraa, and your owner's name is Captain, known as @itzAsuraa."
 
+    # Use the provided model or default to 'claude-sonnet-3.5'
     model = model or default_model
 
+    # Manually prepend the system prompt to the user's query
     if model == default_model:
         query = f"{system_prompt}\n\nUser: {query}"
 
+    # URL encode the query
     encoded_query = urllib.parse.quote(query)
+
+    # Construct the full URL
     url = f"https://chatwithai.codesearch.workers.dev/?chat={encoded_query}&model={model}"
 
-    loop = asyncio.get_event_loop()
-    response = await loop.run_in_executor(None, requests.get, url)
-
+    # Make the GET request to the API
+    response = requests.get(url)
+    
+    # Check for successful response
     if response.status_code == 200:
         return response.json().get("result", "No response found.")
     else:
@@ -33,7 +39,13 @@ async def handle_query(client, message):
         return
 
     # Fetch the response from the AI API
-    response = await ask_query(user_query)
+    response = ask_query(user_query)
 
     # Send the response back to the user
     await message.reply_text(f"<b>{response}</b>")
+
+# Create and run the bot instance
+app = Client("my_bot")
+
+# Start the bot
+app.run()
