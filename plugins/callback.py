@@ -99,7 +99,8 @@ async def callback(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ɴᴇᴡs', callback_data='news'),
             InlineKeyboardButton('sᴏɴɢ', callback_data='song')
             ],[
-            InlineKeyboardButton('ɪɴsᴛᴀɢʀᴀᴍ', callback_data='insta')
+            InlineKeyboardButton('ɪɴsᴛᴀɢʀᴀᴍ', callback_data='insta'), 
+            InlineKeyboardButton('ᴀɪ', callback_data='ai_prompt')
             ],[
             InlineKeyboardButton('« ʙᴀᴄᴋ', callback_data='help_nxt'),
             InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='start')
@@ -117,6 +118,18 @@ async def callback(client: Client, query: CallbackQuery):
         ]]               
         await query.message.edit(
             text=tg.SCAN_PH,
+            reply_markup=InlineKeyboardMarkup(buttons),
+            disable_web_page_preview = True,
+            parse_mode=enums.ParseMode.HTML     
+        )
+
+    elif query.data == "ai_promt":
+        buttons = [[
+           InlineKeyboardButton("« ʙᴀᴄᴋ", callback_data="help_nxxt"),
+           InlineKeyboardButton("🚫 ᴄʟᴏꜱᴇ", callback_data="close")
+        ]]               
+        await query.message.edit(
+            text=tg.AI_TXT,
             reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview = True,
             parse_mode=enums.ParseMode.HTML     
